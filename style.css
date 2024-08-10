@@ -14,30 +14,29 @@ body {
 
 .paper {
   background-image: url("https://i0.wp.com/textures.world/wp-content/uploads/2018/10/2-Millimeter-Paper-Background-copy.jpg?ssl=1");
-  background-size: 500px;
+  background-size: cover;
   background-position: center center;
-  padding: 30px;
+  padding: 20px 50px;
   transform: rotateZ(-5deg);
   box-shadow: 1px 15px 20px 0px rgba(0, 0, 0, 0.5);
   position: absolute;
   max-width: 95%;
-  cursor: grab;
 }
 
 .paper.heart {
   position: relative;
-  width: 175px;
-  height: 175px;
+  width: 150px;
+  height: 150px;
   padding: 0;
   border-radius: 50%;
 }
 
 .paper.image p {
-  font-size: 22px;
+  font-size: 20px;
 }
 
 img {
-  max-height: 175px;
+  max-height: 150px;
   width: 100%;
   user-select: none;
 }
@@ -50,7 +49,7 @@ img {
   position: absolute;
   top: 0;
   left: 0;
-  background-size: 150px;
+  background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
   opacity: 0.6;
@@ -58,27 +57,20 @@ img {
 
 p {
   font-family: 'Zeyada';
-  font-size: 28px;
+  font-size: 40px;
   color: rgb(0, 0, 100);
   opacity: 0.75;
   user-select: none;
 }
 
-.paper:nth-of-type(3n) {
-  background-position: left top;
-}
-
-.paper:nth-of-type(3n) {
-  /*   filter: hue-rotate(200deg); */
-}
-
+/* Media Queries for Mobile Devices */
 @media (max-width: 768px) {
   .paper {
-    padding: 15px;
-    max-width: 90%;
+    padding: 15px 30px;
     transform: none;
     position: relative;
     margin: 15px auto;
+    max-width: 90%;
   }
 
   .paper.heart {
@@ -86,8 +78,12 @@ p {
     height: 125px;
   }
 
+  .paper.image p {
+    font-size: 18px;
+  }
+
   p {
-    font-size: 26px;
+    font-size: 28px;
   }
 
   img {
@@ -104,15 +100,30 @@ p {
   }
 }
 
-.paper:last-child {
-  font-size: 20px;
-  color: #ff0000;
-  position: fixed;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.7);
-  padding: 5px 10px;
-  border-radius: 5px;
+@media (max-width: 480px) {
+  .paper {
+    padding: 10px 20px;
+    max-width: 100%;
+  }
+
+  .paper.heart {
+    width: 100px;
+    height: 100px;
+  }
+
+  .paper.image p {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 24px;
+  }
+
+  img {
+    max-height: 100px;
+  }
+
+  .paper:last-child {
+    font-size: 18px;
+  }
 }
