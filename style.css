@@ -111,3 +111,24 @@ p {
     max-height: 120px;
   }
 }
+
+@media (max-width: 400px) {
+    .paper {
+      padding: 5px;
+      max-width: 100%;
+    }
+  
+    .paper.heart {
+      width: 100px;
+      height: 100px;
+    }
+  
+    p {
+      font-size: 20px;
+    }
+  
+    img {
+      max-height: 100px;
+    }
+  }
+  
