@@ -1,46 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
-
 body {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-size: cover;
-  background-image: url("C:/Users/ASUS/Dropbox/e9b88f98-3345-40ed-992e-26834349933e.jpg");
+  background-size: 1000px;
+  background-image: url("C:\Users\ASUS\Dropbox\e9b88f98-3345-40ed-992e-26834349933e.jpg");
   background-position: center center;
-  margin: 0;
-  overflow: hidden;
 }
-
 .paper {
   background-image: url("https://i0.wp.com/textures.world/wp-content/uploads/2018/10/2-Millimeter-Paper-Background-copy.jpg?ssl=1");
-  background-size: cover;
+  background-size: 500px;
   background-position: center center;
-  padding: 20px;
+  padding: 20px 250px;
   transform: rotateZ(-5deg);
-  box-shadow: 1px 15px 20px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 15px 20px 0px rgba(0,0,0,0.5);
   position: absolute;
-  max-width: 80%;
-  transition: transform 0.2s ease-in-out;
 }
-
 .paper.heart {
+  position: relative;
   width: 200px;
   height: 200px;
-  border-radius: 50%;
   padding: 0;
+  border-radius: 50%;
 }
-
+.paper.image {
+  padding: 10px;
+}
 .paper.image p {
-  font-size: 24px;
+  font-size: 30px;
 }
-
 img {
   max-height: 200px;
   width: 100%;
   user-select: none;
 }
-
 .paper.heart::after {
   content: "";
   background-image: url('https://cdn.pixabay.com/photo/2016/03/31/19/25/cartoon-1294994__340.png');
@@ -49,86 +43,25 @@ img {
   position: absolute;
   top: 0;
   left: 0;
-  background-size: contain;
+  background-size: 150px;
   background-position: center center;
   background-repeat: no-repeat;
   opacity: 0.6;
 }
-
+.paper.red {
+/*   filter: hue-rotate(90deg); */
+}
+.paper:nth-of-type(3n) {
+  background-position: left top;
+}
+.paper:nth-of-type(3n) {
+/*   filter: hue-rotate(200deg); */
+}
 p {
   font-family: 'Zeyada';
-  font-size: 36px;
-  color: rgb(0, 0, 100);
+  font-size: 50px;
+  color: rgb(0,0,100);
   opacity: 0.75;
   user-select: none;
+  
 }
-
-/* Media Queries for Mobile Devices */
-@media (max-width: 768px) {
-  body {
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-
-  .paper {
-    padding: 15px;
-    max-width: 90%;
-    transform: rotateZ(0deg);
-    position: relative;
-    margin: 15px 0;
-  }
-
-  .paper.heart {
-    width: 150px;
-    height: 150px;
-  }
-
-  p {
-    font-size: 28px;
-  }
-
-  img {
-    max-height: 150px;
-  }
-}
-
-@media (max-width: 480px) {
-  .paper {
-    padding: 10px;
-    max-width: 95%;
-  }
-
-  .paper.heart {
-    width: 120px;
-    height: 120px;
-  }
-
-  p {
-    font-size: 24px;
-  }
-
-  img {
-    max-height: 120px;
-  }
-}
-
-@media (max-width: 400px) {
-    .paper {
-      padding: 5px;
-      max-width: 100%;
-    }
-  
-    .paper.heart {
-      width: 100px;
-      height: 100px;
-    }
-  
-    p {
-      font-size: 20px;
-    }
-  
-    img {
-      max-height: 100px;
-    }
-  }
-  
