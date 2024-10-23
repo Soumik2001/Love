@@ -148,20 +148,24 @@ img {
     padding-left:210px;
 }
 
-/* Updated Modal CSS */
+/*----------------------------------------- Updated Modal CSS---------------------------------------- */
+
+
 .modal-table {
     display: none;
     position: fixed;
-    z-index: 2;
-    left: 54.7%;
-    top: 40%;
-    width: 621px;
-    height: 400px;
-    margin-left: -310.5px; /* Center horizontally */
-    margin-top: -200px;    /* Center vertically */
+    z-index: 1000;
+    left: 21.1%;
+    top: 25.8%;
+    width: 780px;
+    height: 450px;
+  max-width: 780px;
+max-height:auto;
     background-color: gray;
     table-layout: fixed;
+border:1px solid #949494;
 }
+
 
 .modal-content {
     display: flex;
@@ -171,40 +175,45 @@ img {
 }
 
 .modal-content img {
-  width: 550px;
-  height: auto;
-    
-    margin: 40px;
-    margin-top: 60px;
-    margin-bottom: -10px;
+margin-left: auto;
+  margin-right: auto;
+display:block;
+  width: 515px;
+  height: 338px;
+    margin-top: -20px;
+    margin-bottom: -30px;
+border-radius:5px;
 }
-.special{
-height:250px;
-width: 321px;
 
-}
 
 .caption-container {
     width: 100%;
     text-align: center;
-    
 }
 .caption-container p {
-    color: #FFD700; 
     text-align: center; 
     font-size: 16px; 
-    margin-top: 10px; 
+    margin-top: -15px; 
+    margin-bottom: 20px;
 }
 
 .prev, .next {
     position: absolute;
-    top: 46%;
-    padding: 14px;
+    top: 40%;
+    padding: 16px;
+
     color: white;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color:rgba(0, 0, 0, 0.4);
+transition:all 0.2s ease-in-out;
+}
+.prev:hover, .next:hover {
+background-color: rgba(0, 0, 0, 0.7);
+color:#fff;
+border-radius:50%;
+margin:0px 0.5px;
 }
 
 .prev {
@@ -217,10 +226,10 @@ width: 321px;
 
 .close {
     position: absolute;
-    top: 10px;
-    right: 30px;
+    top: 5px;
+    right: 10px;
     color: white;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     cursor: pointer;
     transition: color 0.3s ease-in-out;
@@ -231,8 +240,89 @@ color: #000;
 
 }
 .modal-content img.boy-gif {
-    width: 328px; /* Desired width for boy.gif */
-    height: 500px; /* Desired height for boy.gif */
+width:246px;
+height:375px;
+margin-left: auto;
+  margin-right: auto;
+display:block;
+}
+
+
+.image-popup{
+cursor:pointer;
+filter:contrast(115%);
+}
+.image-popup:hover{
+cursor:pointer;
+filter:contrast(100%);
+}
+.special{ 
+width:246px;
+height:375px;
+}
+
+ /* Modal CSS for Firefox */
+
+@-moz-document url-prefix() {
+.modal-table {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 21.1%;
+    top: 25.8%;
+    width: 780px;
+    height: 450px;
+   
+    background-color: gray;
+    table-layout: fixed;
+border:1px solid #949494;
+}
+
+
+.modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+}
+
+.modal-content img {
+margin-left: auto;
+  margin-right: auto;
+display:block;
+  width: 515px;
+  height: 338px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+border-radius:5px;
+}
+
+
+.caption-container {
+    width: 100%;
+    text-align: center;
+    
+}
+.caption-container p {
+    text-align: center; 
+    font-size: 16px; 
+    margin-top: -15px; 
+    margin-bottom: -20px;
+}
+#caption{
+margin-top:50px;
+
+}
+
+.modal-content img.boy-gif {
+width:246px;
+height:375px;
+margin-bottom:-46px;
+margin-left: auto;
+  margin-right: auto;
+display:block;
+}
+
 }
 
     </style>
@@ -342,10 +432,12 @@ color: #000;
     </table>
 
     <!-- Modal Structure  -->
+
+
     <table id="myModal" class="modal-table">
         <tr>
             <td>
-                <span class="close">&times;</span>
+                <span class="close" title="Close">&times;</span>
                 <table class="modal-content" border="0" cellpadding="0" cellspacing="0">
                     <tr>
                         <td><img id="modalImg" src=""></td>
@@ -353,13 +445,14 @@ color: #000;
                 </table>
                 <table class="caption-container" style="width: 100%; text-align: center;">
                     <tr>
-                        <td>
-                            <p id="caption" style="color: white;"></p>
+                        <td >
+                            <p id="caption" style="color: #000; font-weight:900; font-family:Verdana;"></p>
                         </td>
+
                     </tr>
                 </table>
-                <a class="prev">&#10094;</a>
-                <a class="next">&#10095;</a>
+                <a class="prev" title="Previous">&#10094;</a>
+                <a class="next" title="Next">&#10095;</a>
             </td>
         </tr>
     </table>
@@ -390,11 +483,14 @@ function showModal() {
     captionText.innerHTML = images[currentIndex].alt;
 
     // Set specific class for boy.gif
+
+
     if (images[currentIndex].src.includes('boy.gif')) {
-        modalImg.classList.add('boy-gif'); // Apply specific size for boy.gif
+        modalImg.classList.add('boy-gif'); 
     } else {
-        modalImg.classList.remove('boy-gif'); // Remove the class for other images
+        modalImg.classList.remove('boy-gif'); 
     }
+toggleButtons();
 }
 
 function updateModal() {
@@ -403,16 +499,27 @@ function updateModal() {
 
     // Set specific class for boy.gif
     if (images[currentIndex].src.includes('boy.gif')) {
-        modalImg.classList.add('boy-gif'); // Apply specific size for boy.gif
+        modalImg.classList.add('boy-gif'); 
     } else {
-        modalImg.classList.remove('boy-gif'); // Remove the class for other images
+        modalImg.classList.remove('boy-gif'); 
     }
+toggleButtons();
 }
 
 document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
         modal.style.display = "none"; 
     }
+});
+
+window.addEventListener('keydown', event => {
+  if (event.key == "ArrowLeft") {
+    currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+    updateModal();
+  } else if (event.key == "ArrowRight") {
+   currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+    updateModal();
+  }
 });
 
 // Next and Previous functionality
@@ -425,6 +532,26 @@ document.querySelector(".next").addEventListener("click", function () {
     currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
     updateModal();
 });
+
+function toggleButtons(){
+
+//document.querySelector(".prev").style.display="inline-block";
+//document.querySelector(".next").style.display="inline-block";
+
+if(currentIndex===0){
+document.querySelector(".prev").style.display="none";	
+}else{
+document.querySelector(".prev").style.display="inline-block";
+}
+
+if(currentIndex===images.length - 1){
+document.querySelector(".next").style.display="none";
+}else{
+document.querySelector(".next").style.display="inline-block";
+}
+}
+
+
 
     </script>
 </body>
